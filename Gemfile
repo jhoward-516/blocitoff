@@ -26,3 +26,5 @@
  gem 'turbolinks'
  
  gem 'figaro', '1.0'
+ 
+ gem 'devise'
