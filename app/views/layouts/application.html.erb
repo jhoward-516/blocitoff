@@ -11,16 +11,6 @@
 </head>
 <body>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Blocitoff</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
 
     <div class="site-wrapper">
 
@@ -47,25 +37,17 @@
             </div>
         </div>
         <div class="inner cover">
-            <h1 class="cover-heading">Blocitoff</h1>
-            <p class="lead">A self-destructing to-do list to keep you focused on the things that really matter.</p>
+
+            <%= yield %>
+    
         </div>
         </div>
     </div>
 
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-<%= yield %>
-
-</body>
-</html>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-<%= yield %>
 
 </body>
 </html>
