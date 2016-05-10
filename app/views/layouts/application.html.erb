@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blocitoff</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html>
+<head>
   <title>Blocitoff</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -8,13 +21,46 @@
 </head>
 <body>
 
-   <ul class="nav nav-tabs">
-     <div class="pull-right">
-       <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %>
-       <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
-     </div>
-  </ul>
 
+    <div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+        <div class="masthead clearfix">
+            <div class="inner">
+                <h3 class="masthead-brand">Blocitoff</h3>
+                    <nav>
+                        <ul class="nav nav-tabs">
+                            <div class="pull-right">
+                            <% if user_signed_in? %>
+                                Signed in as: <strong><%= current_user.email %></strong> |
+                                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                            <% else %>
+                                <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> |
+                                <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+                            <% end %>
+                            </div>
+                        </ul>
+                    </nav>
+            </div>
+        </div>
+        <div class="inner cover">
+            <h1 class="cover-heading">Blocitoff</h1>
+            <p class="lead">A self-destructing to-do list to keep you focused on the things that really matter.</p>
+        </div>
+        </div>
+    </div>
+
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
