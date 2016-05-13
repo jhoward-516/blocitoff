@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blocitoff</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-<%= yield %>
+    <div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+        <div class="masthead clearfix">
+            <div class="inner">
+                <h3 class="masthead-brand">Blocitoff</h3>
+                    <nav>
+                        <ul class="nav nav-tabs">
+                            <div class="pull-right">
+                            <% if user_signed_in? %>
+                                Signed in as: <strong><%= current_user.email %></strong> |
+                                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                            <% else %>
+                                <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> |
+                                <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+                            <% end %>
+                            </div>
+                        </ul>
+                    </nav>
+                        <% if flash[:notice] %>
+                            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <%= flash[:notice] %>
+                            </div>
+                        <% elsif flash.now[:alert] %>
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <%= flash.now[:alert] %>
+                            </div>
+                        <% elsif flash[:alert] %>
+                            <div class="alert alert-warning">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <%= flash[:alert] %>
+                            </div>
+                        <% end %>
+            </div>
+        </div>
+        <div class="inner cover">
+
+            <%= yield %>
+    
+        </div>
+        </div>
+    </div>
 
 </body>
 </html>
