@@ -1,2 +1,6 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div>
+    <h1>Items</h1>
+    <%= render @user.items %></br>
+    
+    <%= render 'items/form', item: Item.new, user: @user %>
+</div>

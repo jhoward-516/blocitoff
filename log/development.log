@@ -3096,3 +3096,1976 @@ Processing by UsersController#show as HTML
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
   Rendered users/show.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 61ms (Views: 58.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-15 19:27:10 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.5) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.5) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (99.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateItems (20160515191756)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160515191756"]]
+  [1m[36m (17.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_username' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_username' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 107ms (Views: 80.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/assets/application.self-183ce21df6b1c61e1947460ddfd96b68eeb2996e634d06774b2ae44ea8072b49.css?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 75.38.127.138 at 2016-05-15 19:30:07 +0000
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 01:53:42 +0000
+
+ActionController::RoutingError (No route matches [GET] "/users/show"):
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (122.8ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 01:54:28 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 4232ms (Views: 4154.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 75.38.127.138 at 2016-05-16 01:54:32 +0000
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 75.38.127.138 at 2016-05-16 01:54:32 +0000
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 01:54:46 +0000
+
+ActionController::RoutingError (No route matches [GET] "/users/show"):
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (27.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (147.8ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 01:56:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 582ms (Views: 503.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 01:57:08 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered users/show.html.erb within layouts/application (195.4ms)
+Completed 200 OK in 258ms (Views: 254.7ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for 75.38.127.138 at 2016-05-16 01:57:56 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KCWtC6YNTgw4ItRjma/1Pv8VylHQcoR+PFnococAtKqwIjPQ+J6Lul2Mhrk1Mfwkywl5S4BDiQaOPjn5y3Ph3w=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to https://blocitoff-johnhoward.c9users.io/
+Completed 302 Found in 138ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:58 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:58 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:58 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:58 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:58 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:58 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:58 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:58 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:58 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:57:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:00 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:02 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:02 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:02 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:02 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:02 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:02 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:03 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:04 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:04 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:04 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:04 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:05 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:05 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:05 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:05 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:06 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:07 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:07 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:07 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:07 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:07 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:17 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:18 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:19 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 01:58:24 +0000
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 01:58:24 +0000
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:24 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:24 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:24 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:26 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:26 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:26 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:26 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:26 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:58:26 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:33 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:33 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:33 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:33 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:34 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:35 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:35 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:35 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:35 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:35 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:35 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:40 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:40 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:41 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:42 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 01:59:43 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 02:01:43 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 25ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:01:43 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (16.7ms)
+  Rendered users/sessions/new.html.erb within layouts/application (78.0ms)
+Completed 200 OK in 560ms (Views: 536.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:01:52 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s13vy3cR2IlTQ5tzeIZlJCipoI3NA6BEs6MQ5JdK/fIZvR3J5X46RlfBRb+g8obkKmnXe1Ym/N4SI83sdtURIg==", "user"=>{"email"=>"longhornjoho@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "longhornjoho@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2016-05-15 01:52:06.437153"], ["current_sign_in_at", "2016-05-16 02:01:52.933368"], ["sign_in_count", 10], ["updated_at", "2016-05-16 02:01:52.935519"], ["id", 1]]
+  [1m[36m (11.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 340ms (ActiveRecord: 13.0ms)
+
+NameError (undefined local variable or method `users_show_path' for #<Devise::SessionsController:0x007f9139bfcfd0>
+Did you mean?  user_session_path):
+  app/controllers/application_controller.rb:9:in `after_sign_in_path_for'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.1ms)
+
+
+Started POST "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:03:19 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s13vy3cR2IlTQ5tzeIZlJCipoI3NA6BEs6MQ5JdK/fIZvR3J5X46RlfBRb+g8obkKmnXe1Ym/N4SI83sdtURIg==", "user"=>{"email"=>"longhornjoho@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "longhornjoho@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2016-05-16 02:01:52.933368"], ["current_sign_in_at", "2016-05-16 02:03:20.309705"], ["sign_in_count", 11], ["updated_at", "2016-05-16 02:03:20.311324"], ["id", 1]]
+  [1m[36m (12.1ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 276ms (ActiveRecord: 13.9ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users"} missing required keys: [:id]):
+  app/controllers/application_controller.rb:9:in `after_sign_in_path_for'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (95.2ms)
+
+
+Started POST "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:08:23 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s13vy3cR2IlTQ5tzeIZlJCipoI3NA6BEs6MQ5JdK/fIZvR3J5X46RlfBRb+g8obkKmnXe1Ym/N4SI83sdtURIg==", "user"=>{"email"=>"longhornjoho@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "longhornjoho@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2016-05-16 02:03:20.309705"], ["current_sign_in_at", "2016-05-16 02:08:23.354231"], ["sign_in_count", 12], ["updated_at", "2016-05-16 02:08:23.355814"], ["id", 1]]
+  [1m[36m (13.4ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 177ms (ActiveRecord: 15.5ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users"} missing required keys: [:id]):
+  app/controllers/application_controller.rb:9:in `after_sign_in_path_for'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (78.2ms)
+
+
+Started POST "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:09:40 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s13vy3cR2IlTQ5tzeIZlJCipoI3NA6BEs6MQ5JdK/fIZvR3J5X46RlfBRb+g8obkKmnXe1Ym/N4SI83sdtURIg==", "user"=>{"email"=>"longhornjoho@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "longhornjoho@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2016-05-16 02:08:23.354231"], ["current_sign_in_at", "2016-05-16 02:09:40.533606"], ["sign_in_count", 13], ["updated_at", "2016-05-16 02:09:40.535129"], ["id", 1]]
+  [1m[36m (14.0ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 188ms (ActiveRecord: 16.4ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users"} missing required keys: [:id]):
+  app/controllers/application_controller.rb:9:in `after_sign_in_path_for'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.0ms)
+
+
+Started POST "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:11:07 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s13vy3cR2IlTQ5tzeIZlJCipoI3NA6BEs6MQ5JdK/fIZvR3J5X46RlfBRb+g8obkKmnXe1Ym/N4SI83sdtURIg==", "user"=>{"email"=>"longhornjoho@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "longhornjoho@gmail.com"]]
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2016-05-16 02:09:40.533606"], ["current_sign_in_at", "2016-05-16 02:11:07.333025"], ["sign_in_count", 14], ["updated_at", "2016-05-16 02:11:07.335232"], ["id", 1]]
+  [1m[36m (14.6ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 188ms (ActiveRecord: 17.5ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users"} missing required keys: [:id]):
+  app/controllers/application_controller.rb:9:in `after_sign_in_path_for'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (21.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (97.3ms)
+
+
+Started POST "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:11:50 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s13vy3cR2IlTQ5tzeIZlJCipoI3NA6BEs6MQ5JdK/fIZvR3J5X46RlfBRb+g8obkKmnXe1Ym/N4SI83sdtURIg==", "user"=>{"email"=>"longhornjoho@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "longhornjoho@gmail.com"]]
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2016-05-16 02:11:07.333025"], ["current_sign_in_at", "2016-05-16 02:11:50.495232"], ["sign_in_count", 15], ["updated_at", "2016-05-16 02:11:50.497783"], ["id", 1]]
+  [1m[36m (11.4ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 208ms (ActiveRecord: 14.1ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users"} missing required keys: [:id]):
+  app/controllers/application_controller.rb:9:in `after_sign_in_path_for'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.6ms)
+
+
+Started POST "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:15:22 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s13vy3cR2IlTQ5tzeIZlJCipoI3NA6BEs6MQ5JdK/fIZvR3J5X46RlfBRb+g8obkKmnXe1Ym/N4SI83sdtURIg==", "user"=>{"email"=>"longhornjoho@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "longhornjoho@gmail.com"]]
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2016-05-16 02:11:50.495232"], ["current_sign_in_at", "2016-05-16 02:15:22.369227"], ["sign_in_count", 16], ["updated_at", "2016-05-16 02:15:22.375044"], ["id", 1]]
+  [1m[36m (12.5ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 206ms (ActiveRecord: 15.8ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users"} missing required keys: [:id]):
+  app/controllers/application_controller.rb:9:in `after_sign_in_path_for'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (94.3ms)
+
+
+Started POST "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:15:37 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s13vy3cR2IlTQ5tzeIZlJCipoI3NA6BEs6MQ5JdK/fIZvR3J5X46RlfBRb+g8obkKmnXe1Ym/N4SI83sdtURIg==", "user"=>{"email"=>"longhornjoho@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "longhornjoho@gmail.com"]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2016-05-16 02:15:22.369227"], ["current_sign_in_at", "2016-05-16 02:15:37.845244"], ["sign_in_count", 17], ["updated_at", "2016-05-16 02:15:37.848924"], ["id", 1]]
+  [1m[36m (10.6ms)[0m  [1mcommit transaction[0m
+Redirected to https://blocitoff-johnhoward.c9users.io/users/show
+Completed 302 Found in 239ms (ActiveRecord: 13.4ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered users/show.html.erb within layouts/application (63.0ms)
+Completed 200 OK in 162ms (Views: 157.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/application.self-183ce21df6b1c61e1947460ddfd96b68eeb2996e634d06774b2ae44ea8072b49.css?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 75.38.127.138 at 2016-05-16 02:15:38 +0000
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:18:11 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 1.1ms)
+
+SyntaxError (/home/ubuntu/workspace/app/views/users/show.html.erb:8: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/users/show.html.erb:8: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (20.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.6ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:18:36 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (38.5ms)
+  Rendered users/show.html.erb within layouts/application (134.5ms)
+Completed 500 Internal Server Error in 144ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (undefined method `items_path' for #<#<Class:0x007f9138fd5dd8>:0x007f9139b443e0>
+Did you mean?  items_create_path):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for [item] do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb___2959504129904417342_70130859382140'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1783365821366886124_70130857817320'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (29.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (88.8ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:21:39 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (2.1ms)
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb___2959504129904417342_70130859108800'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1783365821366886124_70130857817320'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (84.2ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:22:31 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.7ms)
+  Rendered users/show.html.erb within layouts/application (14.3ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 2.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb___2959504129904417342_70130859108800'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1783365821366886124_70130857817320'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (91.2ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:25:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.8ms)
+  Rendered users/show.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb___2959504129904417342_70130863206500'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1783365821366886124_70130863835520'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (17.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (85.9ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:27:44 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered users/show.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (Missing partial users/_form, application/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee]}. Searched in:
+  * "/home/ubuntu/workspace/app/views"
+  * "/usr/local/rvm/gems/ruby-2.3.0/gems/devise-4.1.0/app/views"
+):
+    2:     <h1>Items</h1>
+    3:     <%= render @user.items %></br>
+    4:     
+    5:     <%= render 'form', item: Item.new, user: @user %>
+    6: </div>
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1783365821366886124_70130863590600'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (18.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (93.9ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:28:04 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.9ms)
+  Rendered users/show.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb___2959504129904417342_70130859108800'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1783365821366886124_70130851382540'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (12.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (133.9ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:34:37 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.8ms)
+  Rendered users/show.html.erb within layouts/application (14.9ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 2.1ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb___2959504129904417342_70130859108800'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1783365821366886124_70130851382540'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (13.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (76.3ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:34:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.4ms)
+  Rendered users/show.html.erb within layouts/application (16.2ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 2.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb___2959504129904417342_70130859108800'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1783365821366886124_70130851382540'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (91.1ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 02:35:19 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (3.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 507ms (Views: 445.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:35:29 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (5.5ms)
+  Rendered users/show.html.erb within layouts/application (60.7ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb__2663912377748598719_69892050541560'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1754298661409178658_69892051534260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.7ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:35:52 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.4ms)
+  Rendered users/show.html.erb within layouts/application (16.2ms)
+Completed 500 Internal Server Error in 149ms (ActiveRecord: 2.2ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb__2663912377748598719_69892050541560'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1754298661409178658_69892051534260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (86.2ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:37:12 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb__2663912377748598719_69892050541560'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1754298661409178658_69892051534260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (80.2ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 02:37:18 +0000
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 81ms (Views: 77.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 02:37:18 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 79ms (Views: 75.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 75.38.127.138 at 2016-05-16 02:37:20 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oGXUhsa8hHV72bTm3/Xrdw0Cc4S6A6+wbVPDLaBE7fcT0RjPugg3fyB2qmxILkOo8Y2NhVFqu58U9tjpw1e0+g=="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to https://blocitoff-johnhoward.c9users.io/
+Completed 302 Found in 105ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 75.38.127.138 at 2016-05-16 02:37:20 +0000
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:37:20 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (20.3ms)
+  Rendered users/sessions/new.html.erb within layouts/application (77.3ms)
+Completed 200 OK in 148ms (Views: 146.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:37:24 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (8.7ms)
+  Rendered users/sessions/new.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 79ms (Views: 77.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 75.38.127.138 at 2016-05-16 02:37:31 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uugF78jbKEgBCeGa9D/GFty/6sp4WRMqt1RleFvkpHNUVMmDFh4K/6ETTyL3ky9MfGNen2FCGxDA1aOiUrMaTg==", "user"=>{"email"=>"longhornjoho@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "longhornjoho@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2016-05-16 02:15:37.845244"], ["current_sign_in_at", "2016-05-16 02:37:31.811824"], ["sign_in_count", 18], ["updated_at", "2016-05-16 02:37:31.813494"], ["id", 1]]
+  [1m[36m (11.5ms)[0m  [1mcommit transaction[0m
+Redirected to https://blocitoff-johnhoward.c9users.io/users/show
+Completed 302 Found in 265ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:37:31 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.3ms)
+  Rendered users/show.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb__2663912377748598719_69892050541560'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1754298661409178658_69892051534260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (94.2ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:40:05 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.5ms)
+  Rendered users/show.html.erb within layouts/application (14.6ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 2.3ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb__2663912377748598719_69892050541560'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1754298661409178658_69892051534260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (23.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (105.2ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:44:40 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.2ms)
+  Rendered users/show.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 140ms (ActiveRecord: 2.1ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb__2663912377748598719_69892050541560'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1754298661409178658_69892051534260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (80.9ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:46:20 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (1.5ms)
+  Rendered users/show.html.erb within layouts/application (14.4ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 2.2ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb__2663912377748598719_69892050541560'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1754298661409178658_69892051534260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (86.8ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 02:51:22 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (2.2ms)
+  Rendered users/show.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb__2663912377748598719_69892050541560'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1754298661409178658_69892051534260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (107.6ms)
+
+
+Started GET "/users/show" for 75.38.127.138 at 2016-05-16 03:01:10 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered items/_form.html.erb (2.3ms)
+  Rendered users/show.html.erb within layouts/application (9.9ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1:  <h4>Add an item to your list</h4>
+    2:     <%= form_for @item do |f| %>
+    3:         <div class="form-group">
+    4:           <%= f.label :name, class: 'sr-only' %>
+    5:           <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+  app/views/items/_form.html.erb:2:in `_app_views_items__form_html_erb__2663912377748598719_69892050541560'
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___1754298661409178658_69892051534260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (93.5ms)

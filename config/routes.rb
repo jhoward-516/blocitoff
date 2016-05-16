@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  
+  devise_for :users do
+  end
+  
+  resources :users, only: [:show] do
+    resources :items, only: [:new, :create]
+  end
+  
+  get 'items/create'
   
   get 'users/show'
 
   get 'welcome/index'
 
-  devise_for :users
-  
   root 'welcome#index'
   
 end
