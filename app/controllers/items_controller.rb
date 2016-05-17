@@ -6,16 +6,17 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
-    item.user = current_user
+    @item.user = current_user
     
     if @item.save
       flash[:notice] = "Item saved successfully."
-       redirect_to users_show_path
      else
        flash[:alert] = "Item failed to save."
-       redirect_to users_show_path
     end
+  redirect_to user_path(current_user)
   end
+  
+  
   
   private
   def item_params

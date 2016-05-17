@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   
   def after_sign_in_path_for(users)
-    users_show_path
+    user_path(current_user)
   end
   
   protected

@@ -7,12 +7,6 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create]
   end
   
-  get 'items/create'
-  
-  get 'users/show'
-
-  get 'welcome/index'
-
   root 'welcome#index'
   
 end
