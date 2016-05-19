@@ -1,0 +1,6 @@
+<div>
+    <h1>Items</h1>
+    <%= render @user.items %></br>
+    
+    <%= render 'items/form', item: Item.new, user: @user %>
+</div>
