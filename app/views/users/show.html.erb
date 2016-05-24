@@ -1,6 +1,13 @@
 <div>
-    <h1>Items</h1>
-    <%= render @user.items %></br>
-    
+    <h1>To-Do Items</h1>
+        <table class="table table-bordered .table-hover">
+            <tr>
+                <th>Item</th>
+                <th>Time Remaining</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <%= render @user.items %>
+        </table>
     <%= render 'items/form', item: Item.new, user: @user %>
 </div>

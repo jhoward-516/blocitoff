@@ -1,5 +1,6 @@
-<div class="media">
-   <div class="media-body">
-     <p><%= item.name %></p>
-   </div>
-</div>
+<tr>
+    <td style="text-decoration:<%= item.complete ? 'line-through' : ''%>"><%= item.name%></td>
+    <td><%= distance_of_time_in_words_to_now(item.expire_at) if item.expire_at %></td>
+    <td><%= link_to "Complete", user_item_toggle_path(item.user, item), method: :put %></td>
+    <td><%= link_to "Remove", [item.user, item], method: :delete, data: { confirm: "Are you sure?" } %></td>
+</tr>
